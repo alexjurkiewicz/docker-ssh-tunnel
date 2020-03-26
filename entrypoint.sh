@@ -8,7 +8,7 @@ chmod 700 .ssh
 echo "${SSH_KEY}" >.ssh/id_rsa
 chmod 400 .ssh/id_rsa
 
-ssh \
+exec ssh \
   -4N \
   -o StrictHostKeyChecking=no -o IdentitiesOnly=yes \
   -o ServerAliveInterval="${SERVER_ALIVE_INTERVAL:-10}" \
