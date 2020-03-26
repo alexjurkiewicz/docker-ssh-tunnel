@@ -6,15 +6,15 @@ This image lets you easily set up a SSH tunnel. This is different to [existing s
 
 ```sh
 docker run \
-  -e "SSH_KEY=$(cat ~/.ssh/id_rsa)" \
-  -e SSH_HOST=bastion.company.com \
-  -e TARGET_HOST="aj@mysql.company.internal" \
+  -e SSH_KEY="$(cat ~/.ssh/id_rsa)" \
+  -e SSH_HOST=aj@bastion.company.com \
+  -e TARGET_HOST=mysql.company.internal \
   -e TARGET_PORT=3306 \
   -p 10000:10000 \
   alexjurkiewicz/ssh-tunnel:latest
 ```
 
-This will SSH to `SSH_HOST` and set up a tunnel to `TARGET_HOST:TARGET_PORT`. You can test the tunnel by running this in another terminal window:
+This will SSH to `SSH_HOST` and set up a tunnel to `TARGET_HOST:TARGET_PORT`. The tunnel will be exposed on port 10000. You can test the tunnel by running this in another terminal window:
 
 ```sh
 mysql -h localhost -P 10000 # works!
