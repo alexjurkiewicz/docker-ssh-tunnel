@@ -11,7 +11,7 @@ docker run \
   -e TARGET_HOST="aj@mysql.company.internal" \
   -e TARGET_PORT=3306 \
   -p 10000:10000 \
-  alexjurkiewicz/docker-ssh-tunnel:latest
+  alexjurkiewicz/ssh-tunnel:latest
 ```
 
 This will SSH to `SSH_HOST` and set up a tunnel to `TARGET_HOST:TARGET_PORT`. You can test the tunnel by running this in another terminal window:
